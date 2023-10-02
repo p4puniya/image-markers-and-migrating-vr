@@ -446,7 +446,7 @@ class AndroidBuild extends JavaBuild {
     
     String modePath = new File(mode.getFolder(), "mode").getPath().replace('\\', '/');
     String toolPath = Base.getToolsFolder().getPath().replace('\\', '/');
-    String platformPath = sdk.getTargetPlatform(TARGET_SDK).getPath().replace('\\', '/');
+      String platformPath = sdk.getTargetPlatform(TARGET_SDK).getPath().replace('\\', '/');
     
     File appBuildTemplate = mode.getContentFile("templates/" + tmplFile);    
     File appBuildFile = new File(moduleFolder, "build.gradle");    

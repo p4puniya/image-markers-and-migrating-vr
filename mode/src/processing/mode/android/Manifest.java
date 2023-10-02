@@ -146,7 +146,7 @@ public class Manifest {
     boolean hasVibrate = false;
     boolean hasReadExtStorage = false;
     boolean hasCameraAccess = false;
-    
+
     // Remove all the old permissions...
     for (XML kid : xml.getChildren("uses-permission")) {
       String name = kid.getString("android:name");
@@ -168,7 +168,7 @@ public class Manifest {
         hasCameraAccess = true;
         continue;
       }
-      
+
       // Don't remove non-standard permissions, such as
       // com.google.android.wearable.permission.RECEIVE_COMPLICATION_DATA
       // because these are set manually by the user.
@@ -184,7 +184,7 @@ public class Manifest {
       if (appComp == AndroidBuild.VR && name.equals("VIBRATE")) continue;
       if (appComp == AndroidBuild.VR && name.equals("READ_EXTERNAL_STORAGE")) continue;
       if (appComp == AndroidBuild.AR && name.equals(PERMISSION_PREFIX + "CAMERA")) continue;
-         
+
       XML newbie = xml.addChild("uses-permission");
       if (-1 < name.indexOf(".")) {
         // Permission string contains path
@@ -255,8 +255,8 @@ public class Manifest {
     }
     if (appComp == AndroidBuild.VR && !hasReadExtStorage) {
       mf.addChild("uses-permission").
-         setString("android:name", PERMISSION_PREFIX + "READ_EXTERNAL_STORAGE");       
-    }    
+         setString("android:name", PERMISSION_PREFIX + "READ_EXTERNAL_STORAGE");
+    }
   }
   
 
