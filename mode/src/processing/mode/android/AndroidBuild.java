@@ -245,8 +245,8 @@ class AndroidBuild extends JavaBuild {
     }
 
     // Create the 'cpp' folder within 'src/main'
-    File cppFolder = new File(srcFolder.getParentFile(), "cpp");
-    cppFolder.mkdirs(); // Create the folder if it doesn't exist
+//    File cppFolder = new File(srcFolder.getParentFile(), "cpp");
+//    cppFolder.mkdirs(); // Create the folder if it doesn't exist
 
     manifest = new Manifest(sketch, appComponent, mode.getFolder(), false);    
     
@@ -263,12 +263,10 @@ class AndroidBuild extends JavaBuild {
         }
         writeMainClass(srcFolder, external);
         createTopModule("':" + module + "'", password);
-        createAppModule(module);  
+        createAppModule(module);
       }
     }
-    //check if cpp folders exist:
-    if(cppFolder.exists()) System.out.println("Cpp Directory created successfully.");
-    else  System.out.println("Error while creating Cpp Dir.");
+    //To-do check if VR folders are generated properly:
     return tmpFolder;
   }
 
@@ -401,7 +399,7 @@ class AndroidBuild extends JavaBuild {
     replaceMap.clear();
     if (getAppComponent() == VR) {
       // The local google-vr has to be added to the settings to fix Issue #718
-      replaceMap.put("@@project_modules@@", projectModules + ", ':app:libs:google-vr'");      
+//      replaceMap.put("@@project_modules@@", projectModules + ", ':app:libs:google-vr'");
     } else {
       replaceMap.put("@@project_modules@@", projectModules);
     }
@@ -435,6 +433,7 @@ class AndroidBuild extends JavaBuild {
       tmplFile = exportProject ? AR_GRADLE_BUILD_TEMPLATE : AR_GRADLE_BUILD_ECJ_TEMPLATE;
     } else if (appComponent == VR) {
       minSdk = MIN_SDK_VR;
+      exportProject= true; //using the JDK build instead of Eclipse
       tmplFile = exportProject ? VR_GRADLE_BUILD_TEMPLATE : VR_GRADLE_BUILD_ECJ_TEMPLATE;
     } else if (appComponent == WATCHFACE) {
       minSdk = MIN_SDK_WATCHFACE;
@@ -474,22 +473,26 @@ class AndroidBuild extends JavaBuild {
     File mainFolder = new File(moduleFolder, "src/main");
     File resFolder = AndroidUtil.createPath(mainFolder, "res");
     File assetsFolder = AndroidUtil.createPath(mainFolder, "assets");
+    File sdkFolder = AndroidUtil.createPath(moduleFolder, "sdk");
+    File jniFolder = AndroidUtil.createPath(mainFolder, "jni");
 
     writeRes(resFolder);
 
     File tempManifest = new File(mainFolder, "AndroidManifest.xml");
     manifest.writeCopy(tempManifest, sketchClassName);
-
-    Util.copyFile(coreZipFile, new File(libsFolder, "processing-core.jar"));
-
     // Copy any imported libraries (their libs and assets),
     // and anything in the code folder contents to the project.
     copyImportedLibs(libsFolder, mainFolder, assetsFolder);
     copyCodeFolder(libsFolder);
+    Util.copyFile(gradlePropsTemplate, gradlePropsFile);
+
 
     if (getAppComponent() == VR) {
-      // Need to call this to fix Issue #718
-      copyGVRLibs(libsFolder);
+      // Changed to copy paste the SDK folder for cardboard.
+      copysdkLibs(sdkFolder);
+      File CMakeLists= new File(moduleFolder,"CMakeLists.txt");
+      Util.copyFile("libraries/vr/CMakeLists.txt",CMakeLists);
+      copyJniLibs(jniFolder);
     }
 
     // Copy the data folder (if one exists) to the project's 'assets' folder
@@ -908,13 +911,17 @@ class AndroidBuild extends JavaBuild {
   /**
    * Copy the dummy Gradle project containing aar files from Google VR,
    * so they can be imported locally from the project
-   */  
-  private void copyGVRLibs(final File libsFolder) throws IOException {
-    File srcFolder = new File(mode.getFolder(), "libraries/vr/libs/google-vr");
-    File dstFolder = new File(libsFolder, "google-vr");
+   */
+  private void copysdkLibs(final File sdkFolder) throws IOException {
+    File srcFolder = new File(mode.getFolder(), "libraries/vr/sdk");
+    File dstFolder = new File(sdkFolder);
     Util.copyDir(srcFolder, dstFolder);
   }
-  
+  private void copyJniLibs(final File jniFolder) throws IOException {
+    File srcFolder = new File(mode.getFolder(), "libraries/vr/jni");
+    File dstFolder = new File(jniFolder);
+    Util.copyDir(srcFolder, dstFolder);
+  }
   private void copyCodeFolder(final File libsFolder) throws IOException {
     // Copy files from the 'code' directory into the 'libs' folder
     final File codeFolder = sketch.getCodeFolder();

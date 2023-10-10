@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5521ca1f-b7ff-48c8-be5e-037e9fe8de75" name="Changes" comment="Adding Cmake, JNI files, Cardboard Sdk and editing build.gradle">
-      <change beforePath="$PROJECT_DIR$/src/processing/mode/android/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/mode/android/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_29_09_23,_2_20_pm_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_29_09_23__2_20_pm__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_09_23,_10_05_am_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_09_23__10_05_am__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processing/mode/android/AndroidBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/mode/android/AndroidBuild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/VRBuild.gradle.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/VRBuild.gradle.tmpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="adding_jni" />
+        <entry key="$PROJECT_DIR$/.." value="adding_gradle_dependency" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -79,6 +86,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libraries/vr" />
       <recent name="$PROJECT_DIR$/libraries/vr/libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libraries/vr" />
+      <recent name="$PROJECT_DIR$/libraries/vr/src" />
+      <recent name="$PROJECT_DIR$/libraries/vr/src/processing" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
