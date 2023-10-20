@@ -9,6 +9,19 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/.sdkman/candidates/gradle/current" />
         <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/.." />
+            <option value="$PROJECT_DIR$/../buildSrc" />
+            <option value="$PROJECT_DIR$/../core" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/ar" />
+            <option value="$PROJECT_DIR$/libraries/vr" />
+            <option value="$PROJECT_DIR$/tools" />
+            <option value="$PROJECT_DIR$/tools/SDKUpdater" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

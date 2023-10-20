@@ -244,10 +244,6 @@ class AndroidBuild extends JavaBuild {
       Platform.openFolder(tmpFolder);
     }
 
-    // Create the 'cpp' folder within 'src/main'
-//    File cppFolder = new File(srcFolder.getParentFile(), "cpp");
-//    cppFolder.mkdirs(); // Create the folder if it doesn't exist
-
     manifest = new Manifest(sketch, appComponent, mode.getFolder(), false);    
     
     // build the preproc and get to work
@@ -399,7 +395,7 @@ class AndroidBuild extends JavaBuild {
     replaceMap.clear();
     if (getAppComponent() == VR) {
       // The local google-vr has to be added to the settings to fix Issue #718
-//      replaceMap.put("@@project_modules@@", projectModules + ", ':app:libs:google-vr'");
+      replaceMap.put("@@project_modules@@", projectModules + ", ':app:libs:google-vr'");
     } else {
       replaceMap.put("@@project_modules@@", projectModules);
     }
@@ -480,18 +476,23 @@ class AndroidBuild extends JavaBuild {
 
     File tempManifest = new File(mainFolder, "AndroidManifest.xml");
     manifest.writeCopy(tempManifest, sketchClassName);
+
+    Util.copyFile(coreZipFile, new File(libsFolder, "processing-core.jar"));
     // Copy any imported libraries (their libs and assets),
     // and anything in the code folder contents to the project.
     copyImportedLibs(libsFolder, mainFolder, assetsFolder);
     copyCodeFolder(libsFolder);
-    Util.copyFile(gradlePropsTemplate, gradlePropsFile);
-
 
     if (getAppComponent() == VR) {
+      copyGVRLibs(libsFolder);
       // Changed to copy paste the SDK folder for cardboard.
-      copysdkLibs(sdkFolder);
-      File CMakeLists= new File(moduleFolder,"CMakeLists.txt");
-      Util.copyFile("libraries/vr/CMakeLists.txt",CMakeLists);
+      copySdkLibs(sdkFolder);
+      File CMakeLists = new File(moduleFolder, "CMakeLists.txt");
+//      File sourceFile = new File(modePath,"libraries/vr/CMakeLists.txt");
+      File sourceFile = mode.getContentFile("libraries/vr/CMakeLists.txt");
+      //To-Do: Copy CmakeLists from source to module folder
+      Util.copyFile(sourceFile, CMakeLists);
+
       copyJniLibs(jniFolder);
     }
 
@@ -912,14 +913,20 @@ class AndroidBuild extends JavaBuild {
    * Copy the dummy Gradle project containing aar files from Google VR,
    * so they can be imported locally from the project
    */
-  private void copysdkLibs(final File sdkFolder) throws IOException {
+  private void copySdkLibs(final File sdkFolder) throws IOException {
     File srcFolder = new File(mode.getFolder(), "libraries/vr/sdk");
-    File dstFolder = new File(sdkFolder);
+    File dstFolder = sdkFolder;
     Util.copyDir(srcFolder, dstFolder);
   }
+
   private void copyJniLibs(final File jniFolder) throws IOException {
     File srcFolder = new File(mode.getFolder(), "libraries/vr/jni");
-    File dstFolder = new File(jniFolder);
+    File dstFolder = jniFolder;
+    Util.copyDir(srcFolder, dstFolder);
+  }
+  private void copyGVRLibs(final File libsFolder) throws IOException {
+    File srcFolder = new File(mode.getFolder(), "libraries/vr/libs/google-vr");
+    File dstFolder = new File(libsFolder, "google-vr");
     Util.copyDir(srcFolder, dstFolder);
   }
   private void copyCodeFolder(final File libsFolder) throws IOException {

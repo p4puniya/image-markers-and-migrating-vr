@@ -24,7 +24,9 @@ dependencies {
 
     implementation fileTree(include: ["jdi.jar", "jdimodel.jar", "core.jar", "pde.jar", "JavaMode.jar"], dir: 'mode')
 }
+task prepareKotlinBuildScriptModel {
 
+}
 // This task copies the gradle tooling jar into the mode folder
 task copyToLib(type: Copy) {
   from configurations.implementationCopy.files
