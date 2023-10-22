@@ -23,6 +23,7 @@
 package processing.vr;
 
 import com.google.vr.sdk.base.GvrActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.util.DisplayMetrics;
@@ -30,7 +31,7 @@ import processing.android.AppComponent;
 import processing.android.ServiceEngine;
 import processing.core.PApplet;
 
-public class VRActivity extends GvrActivity implements AppComponent {
+public class VRActivity extends AppCompatActivity implements AppComponent {
   static public final int GVR = 3;
 
   private DisplayMetrics metrics;

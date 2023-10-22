@@ -8,6 +8,7 @@ plugins {
 dependencies {
     compileOnly name: "android"
     compileOnly "org.p5android:processing-core:${modeVersion}"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
 
 // commenting due to issue #718
 //    implementationAar "com.google.vr:sdk-audio:${gvrVersion}"

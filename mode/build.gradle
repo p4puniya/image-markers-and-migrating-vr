@@ -17,6 +17,7 @@ dependencies {
     // implementation group: "org.processing", name: "java-mode", version: "${processingVersion}"
 
     implementationExtract "org.eclipse.jdt:org.eclipse.jdt.debug:${jdtVersion}"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
 
     implementationCopy "org.gradle:gradle-tooling-api:${toolingVersion}"
     implementationCopy "org.slf4j:slf4j-api:${slf4jVersion}"
