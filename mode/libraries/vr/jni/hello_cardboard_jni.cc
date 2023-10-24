@@ -23,7 +23,7 @@
 
 #define JNI_METHOD(return_type, method_name) \
   JNIEXPORT return_type JNICALL              \
-      Java_com_google_cardboard_VrActivity_##method_name
+      Java_processing_vr_VrActivity_##method_name
 
 namespace {
 
@@ -90,5 +90,10 @@ JNI_METHOD(void, nativeSwitchViewer)
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
   native(native_app)->SwitchViewer();
 }
-
+//for getDisplayMetrics
+JNI_METHOD(jobject, nativeGetDisplayMetrics)
+(JNIEnv* env/*env*/, jobject /*obj*/, jlong native_app){
+    ndk_hello_cardboard::HelloCardboardApp* app = native(native_app);
+    return app->GetDisplayMetrics(env);
+}
 }  // extern "C"

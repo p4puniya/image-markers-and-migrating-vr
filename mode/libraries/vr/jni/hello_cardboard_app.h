@@ -89,7 +89,9 @@ class HelloCardboardApp {
    */
   void SwitchViewer();
 
- private:
+  jobject GetDisplayMetrics(JNIEnv* env);
+
+private:
   /**
    * Default near clip plane z-axis coordinate.
    */
@@ -153,7 +155,8 @@ class HelloCardboardApp {
    */
   bool IsPointingAtTarget();
 
-  jobject java_asset_mgr_;
+
+    jobject java_asset_mgr_;
   AAssetManager* asset_mgr_;
 
   CardboardHeadTracker* head_tracker_;

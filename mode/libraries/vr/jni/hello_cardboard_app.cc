@@ -433,4 +433,23 @@ bool HelloCardboardApp::IsPointingAtTarget() {
   return angle < kAngleLimit;
 }
 
+jobject HelloCardboardApp::GetDisplayMetrics(JNIEnv* env) {
+  jclass displayMetricsClass = env->FindClass("android/util/DisplayMetrics");
+  jmethodID constructor = env->GetMethodID(displayMetricsClass, "<init>", "()V");
+  jobject displayMetricsObj = env->NewObject(displayMetricsClass, constructor);
+
+  jfieldID xdpiField = env->GetFieldID(displayMetricsClass, "xdpi", "F");
+  jfieldID ydpiField = env->GetFieldID(displayMetricsClass, "ydpi", "F");
+
+  // Retrieve the DisplayMetrics data (modify this part as needed).
+  float xdpi = 240.0;  // Example value, replace with your logic.
+  float ydpi = 240.0;  // Example value, replace with your logic.
+
+  env->SetFloatField(displayMetricsObj, xdpiField, xdpi);
+  env->SetFloatField(displayMetricsObj, ydpiField, ydpi);
+
+  return displayMetricsObj;
+}
+
+
 }  // namespace ndk_hello_cardboard

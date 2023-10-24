@@ -928,6 +928,10 @@ class AndroidBuild extends JavaBuild {
     File srcFolder = new File(mode.getFolder(), "libraries/vr/libs/google-vr");
     File dstFolder = new File(libsFolder, "google-vr");
     Util.copyDir(srcFolder, dstFolder);
+    srcFolder = new File(mode.getFolder(), "libraries/vr/library");
+    Util.copyDir(srcFolder, libsFolder);
+    srcFolder = new File(mode.getFolder(),"libraries/vr/libraries");
+    Util.copyDir(srcFolder, libsFolder);
   }
   private void copyCodeFolder(final File libsFolder) throws IOException {
     // Copy files from the 'code' directory into the 'libs' folder

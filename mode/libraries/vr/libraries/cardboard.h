@@ -709,4 +709,4 @@ void CardboardQrCode_getCardboardV1DeviceParams(uint8_t** encoded_device_params,
 }
 #endif
 
-#endif  // MODE_LIBRARIES_VR_SDK_INCLUDE_CARDBOARD_H_
+#endif  // CARDBOARD_SDK_INCLUDE_CARDBOARD_H_

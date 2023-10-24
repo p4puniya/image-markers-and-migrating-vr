@@ -4,16 +4,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5521ca1f-b7ff-48c8-be5e-037e9fe8de75" name="Changes" comment="Committing before Checkout to resolve tooling issue">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../debug/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../debug/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5521ca1f-b7ff-48c8-be5e-037e9fe8de75" name="Changes" comment="Checking Files.">
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/cardboard.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/hello_cardboard_app.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/hello_cardboard_app.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/hello_cardboard_jni.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/libGfxPluginCardboard.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/processing_cardboard_jni.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/util.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/cardboard/util.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libraries/vr/libraries/cardboard.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_app.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_jni.cc" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/jni/hello_cardboard_jni.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/sdk/include/cardboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/sdk/include/cardboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/vr/src/processing/vr/VRActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/vr/src/processing/vr/VRActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/mode/android/AndroidBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/mode/android/AndroidBuild.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/VRBuild.gradle.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/VRBuild.gradle.tmpl" afterDir="false" />
     </list>
@@ -33,6 +42,12 @@
         <task path="$PROJECT_DIR$/..">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/libraries/vr">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -43,13 +58,26 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="processing_android" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="mode" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="processing_android" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="mode" type="2d1252cf:ModuleNode" />
+                <item name="libraries" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="processing_android" type="f1a62948:ProjectNode" />
+                <item name="mode" type="2d1252cf:ModuleNode" />
+                <item name="libraries" type="2d1252cf:ModuleNode" />
+                <item name="vr" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="processing_android" type="f1a62948:ProjectNode" />
+                <item name="mode" type="2d1252cf:ModuleNode" />
+                <item name="tools" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -65,10 +93,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+        <option value="NO_VERIFY" />
+      </set>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="adding_gradle_dependency" />
+        <entry key="$PROJECT_DIR$/.." value="changing_java_files_VRActivity" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -95,28 +131,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/media/gaurav/HDD/android/processing_android/mode/libraries/vr",
-    "project.structure.last.edited": "SDK Location",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/gaurav/HDD/android/processing_android/mode/libraries/vr/libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libraries/vr" />
+      <recent name="$PROJECT_DIR$/libraries/vr/libraries" />
       <recent name="$PROJECT_DIR$/libraries/vr/libs" />
+      <recent name="$PROJECT_DIR$/libraries/vr/cardboard" />
+      <recent name="$PROJECT_DIR$/libraries/vr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libraries/vr/cardboard" />
+      <recent name="$PROJECT_DIR$/libraries/vr/libraries/jni" />
+      <recent name="$PROJECT_DIR$/libraries/vr/libraries" />
       <recent name="$PROJECT_DIR$/libraries/vr" />
       <recent name="$PROJECT_DIR$/libraries/vr/src" />
-      <recent name="$PROJECT_DIR$/libraries/vr/src/processing" />
     </key>
   </component>
   <component name="RunManager">
@@ -205,7 +245,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="adding_jni" />
+                        <option value="Changing_pAndroid_VrActivity" />
                       </list>
                     </value>
                   </entry>

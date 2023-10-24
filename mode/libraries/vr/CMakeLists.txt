@@ -25,8 +25,10 @@ find_library(GLESv2-lib GLESv2)
 find_library(GLESv3-lib GLESv3)
 find_library(log-lib log)
 
-set(libs_dir ${CMAKE_CURRENT_SOURCE_DIR}/libraries)
+# Include directories for Cardboard SDK
+include_directories(app/sdk/include)
 
+set(libs_dir ${CMAKE_CURRENT_SOURCE_DIR}/libs)
 # === Cardboard Sample ===
 # Sources
 file(GLOB native_srcs "src/main/jni/*.cc")

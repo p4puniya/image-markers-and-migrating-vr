@@ -22,7 +22,6 @@
 
 package processing.vr;
 
-import com.google.vr.sdk.base.GvrActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -51,7 +50,6 @@ public class VRActivity extends AppCompatActivity implements AppComponent {
   public VRActivity(PApplet sketch) {
     this.sketch = sketch;
   }
-
 
   public void initDimensions() {
     metrics = getResources().getDisplayMetrics();
