@@ -8,7 +8,7 @@ plugins {
 dependencies {
     compileOnly name: "android"
     compileOnly "org.p5android:processing-core:${modeVersion}"
-
+    implementationAar "androidx.appcompat:appcompat:1.6.1"
 // commenting due to issue #718
 //    implementationAar "com.google.vr:sdk-audio:${gvrVersion}"
 //    implementationAar "com.google.vr:sdk-base:${gvrVersion}"
@@ -102,3 +102,6 @@ ext {
                        [group: 'com.google.vr', name: 'sdk-audio', version: gvrVersion]]
 }
 apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
+task prepareKotlinBuildScriptModel{
+}

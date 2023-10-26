@@ -23,6 +23,7 @@
 package processing.vr;
 
 import com.google.vr.sdk.base.GvrActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.util.DisplayMetrics;

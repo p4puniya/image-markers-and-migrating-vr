@@ -22,10 +22,13 @@
 
 package processing.vr;
 
-import com.google.vr.sdk.base.Eye;
+//import com.google.vr.sdk.base.Eye;
+import processing.cardboardHelper.helperEye;
 import com.google.vr.sdk.base.FieldOfView;
 import com.google.vr.sdk.base.HeadTransform;
-import com.google.vr.sdk.base.Viewport;
+//import com.google.vr.sdk.base.Viewport;
+import processing.cardboardHelper.helperFieldOfView;
+import processing.cardboardHelper.helperViewPort;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
@@ -37,21 +40,21 @@ import processing.opengl.PGraphics3D;
 import processing.opengl.PGraphicsOpenGL;
 
 public class VRGraphics extends PGraphics3D {
-  static public final int LEFT      = Eye.Type.LEFT;
-  static public final int RIGHT     = Eye.Type.RIGHT;
-  static public final int MONOCULAR = Eye.Type.MONOCULAR;
+  static public final int LEFT      = helperEye.Type.LEFT;
+  static public final int RIGHT     = helperEye.Type.RIGHT;
+  static public final int MONOCULAR = helperEye.Type.MONOCULAR;
 
   private boolean initialized = false;
 
   public HeadTransform headTransform;
-  public Eye eye;
+  public helperEye eye;
   public int eyeType;
 
   protected float[] forwardVector;
   protected float[] rightVector;
   protected float[] upVector;
 
-  private Viewport eyeViewport;
+  private helperViewPort eyeViewport;
   private float[] eyeView;
   private float[] eyePerspective;
 
@@ -117,16 +120,17 @@ public class VRGraphics extends PGraphics3D {
   }
 
 
-  protected void eyeTransform(Eye e) {
+  protected void eyeTransform(helperEye e) {
     eye = e;
     eyeType = eye.getType();
-    eyeViewport = eye.getViewport();
+    eyeViewport= eye.getViewport();
+
     eyePerspective = eye.getPerspective(defCameraNear, defCameraFar);
     eyeView = eye.getEyeView();
 
     // Adjust the camera Z position to it fits the (width,height) rect at Z = 0, given
     // the fov settings.
-    FieldOfView fov = eye.getFov();
+    helperFieldOfView fov = eye.getFov();
     defCameraFOV = fov.getTop()* DEG_TO_RAD;
     defCameraZ = (float) (height / (2 * Math.tan(defCameraFOV)));
     cameraAspect = (float)width / height;
@@ -138,7 +142,6 @@ public class VRGraphics extends PGraphics3D {
       defCameraY = +height / 2.0f;
     }
   }
-
 
   protected void headTransform(HeadTransform ht) {
     initVR();

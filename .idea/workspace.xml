@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="684066d6-3df2-4014-a684-9e181bb59ea6" name="Changes" comment="Adding isImage Method">
+      <change afterPath="$PROJECT_DIR$/mode/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/cardboardHelper/helper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/cardboardHelper/helperEye.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/cardboardHelper/helperFieldOfView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/cardboardHelper/helperViewPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mode/libraries/vr/vrjar/vr.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mode/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mode/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mode/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/libraries/vr/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mode/libraries/vr/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRGraphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRSurface.java" beforeDir="false" afterPath="$PROJECT_DIR$/mode/libraries/vr/src/processing/vr/VRSurface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/mode/gradlew.zip" beforeDir="false" afterPath="$PROJECT_DIR$/mode/mode/gradlew.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mode/src/processing/mode/android/AndroidBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/mode/src/processing/mode/android/AndroidBuild.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/mode">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="processing_android" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="ar-image-markers-gsoc2023-v0.1" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Rl0PEsBk61NQciKa8Yi2mRWePf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/media/gaurav/HDD/android/processing_android/mode/libraries/vr/vrjar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mode/libraries/vr/vrjar" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="processing.cardboardHelper" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="android-mode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="android-mode" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="684066d6-3df2-4014-a684-9e181bb59ea6" name="Changes" comment="" />
+      <created>1687809342433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687809342433</updated>
+      <workItem from="1687809343982" duration="805000" />
+      <workItem from="1688320407225" duration="9478000" />
+      <workItem from="1688333913073" duration="651000" />
+      <workItem from="1688739647815" duration="659000" />
+      <workItem from="1689044660669" duration="2510000" />
+      <workItem from="1689664214261" duration="2021000" />
+      <workItem from="1689914959402" duration="128000" />
+      <workItem from="1690115025548" duration="2000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding Augmented Image Dataset">
+      <option name="closed" value="true" />
+      <created>1689044937620</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689044937620</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding isImage Method">
+      <option name="closed" value="true" />
+      <created>1689664449763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689664449763</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding Augmented Image Dataset" />
+    <MESSAGE value="Adding isImage Method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding isImage Method" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

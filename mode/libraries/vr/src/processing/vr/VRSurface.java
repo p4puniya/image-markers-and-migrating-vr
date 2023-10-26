@@ -33,6 +33,8 @@ import com.google.vr.sdk.base.AndroidCompat;
 import com.google.vr.sdk.base.Eye;
 import com.google.vr.sdk.base.HeadTransform;
 import com.google.vr.sdk.base.Viewport;
+import processing.cardboardHelper.helperEye;
+import processing.cardboardHelper.helperViewPort;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -47,6 +49,7 @@ import processing.core.PGraphics;
 import processing.opengl.PGLES;
 import processing.opengl.PGraphicsOpenGL;
 import processing.opengl.PSurfaceGLES;
+import android.opengl.GLSurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -64,8 +67,8 @@ public class VRSurface extends PSurfaceGLES {
     this.graphics = graphics;
     this.component = component;
     this.pgl = (PGLES)((PGraphicsOpenGL)graphics).pgl;
-
-    vrActivity = (GvrActivity)component;
+    if (component instanceof GvrActivity) {
+     vrActivity = (GvrActivity)component;
     this.activity = vrActivity;
     pvr = (VRGraphics)graphics;
 
@@ -91,6 +94,8 @@ public class VRSurface extends PSurfaceGLES {
       // sustained performance mode.
       AndroidCompat.setSustainedPerformanceMode(vrActivity, true);
     }
+
+    //This is a Google-VR method and needs to be changed.
     vrActivity.setGvrView(vrView);
 
     surfaceView = null;
@@ -98,6 +103,9 @@ public class VRSurface extends PSurfaceGLES {
     // The glview is ready right after creation, does not need to wait for a
     // surfaceCreate() event.
     surfaceReady = true;
+  } else {
+    System.out.println("FATAL ERROR! Component is not an instance of GvrActivity!");
+    }
   }
 
   @Override
@@ -265,7 +273,13 @@ public class VRSurface extends PSurfaceGLES {
   ///////////////////////////////////////////////////////////
 
   // Android specific classes (Renderer, ConfigChooser)
-
+  public void setRenderer(AndroidVRStereoRenderer renderer) {
+    if (renderer == null) {
+      throw new IllegalArgumentException("StereoRenderer must not be null");
+    } else {
+      //use native function here to set the stereo renderer using long->cardboardView, AVRSRenderer->renderer
+    }
+  }
 
   public AndroidVRStereoRenderer getVRStereoRenderer() {
     renderer = new AndroidVRStereoRenderer();
@@ -273,21 +287,19 @@ public class VRSurface extends PSurfaceGLES {
   }
 
 
-  protected class AndroidVRStereoRenderer implements GvrView.StereoRenderer {
+  protected class AndroidVRStereoRenderer{
     public AndroidVRStereoRenderer() {
 
     }
 
-    @Override
     public void onNewFrame(HeadTransform transform) {
-      hadnleGVREnumError();
+      handleGVREnumError();
       pgl.getGL(null);
       pvr.headTransform(transform);
       needCalculate = true;
     }
 
-    @Override
-    public void onDrawEye(Eye eye) {
+    public void onDrawEye(helperEye eye) {
       pvr.eyeTransform(eye);
       if (needCalculate) {
         // Call calculate() right after we have the first eye transform.
@@ -300,15 +312,9 @@ public class VRSurface extends PSurfaceGLES {
       sketch.handleDraw();
     }
 
-    @Override
-    public void onFinishFrame(Viewport arg0) {
+    public void onFinishFrame(helperViewPort arg0) {
     }
 
-    @Override
-    public void onRendererShutdown() {
-    }
-
-    @Override
     public void onSurfaceChanged(int iwidth, int iheight) {
       sketch.surfaceChanged();
       graphics.surfaceChanged();
@@ -317,15 +323,17 @@ public class VRSurface extends PSurfaceGLES {
       graphics.setSize(sketch.sketchWidth(), sketch.sketchHeight());
     }
 
-    @Override
     public void onSurfaceCreated(EGLConfig arg0) {
+    }
+
+    public void onRendererShutdown() {
     }
 
     // Don't print the invalid enum error:
     // https://github.com/processing/processing-android/issues/281
     // seems harmless as it happens in the first frame only
     // TODO: need to find the reason for the error (gl config?)
-    private void hadnleGVREnumError() {
+    private void handleGVREnumError() {
       int err = pgl.getError();
       if (err != 0 && err != 1280) {
         String where = "top onNewFrame";
