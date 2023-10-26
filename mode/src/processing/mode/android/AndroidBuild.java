@@ -928,8 +928,10 @@ class AndroidBuild extends JavaBuild {
     File srcFolder = new File(mode.getFolder(), "libraries/vr/libs/google-vr");
     File dstFolder = new File(libsFolder, "google-vr");
     Util.copyDir(srcFolder, dstFolder);
-    srcFolder = new File(mode.getFolder(), "libraries/vr/library");
-    Util.copyDir(srcFolder, libsFolder);
+//    srcFolder = new File(mode.getFolder(), "libraries/vr/library");
+//    Util.copyDir(srcFolder, libsFolder);
+    File vrJar = new File(libsFolder, "vr.jar");
+    Util.copyFile(mode.getContentFile("libraries/vr/library/vr.jar"), vrJar);
     srcFolder = new File(mode.getFolder(),"libraries/vr/libraries");
     Util.copyDir(srcFolder, libsFolder);
   }
